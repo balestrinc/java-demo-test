@@ -1,0 +1,23 @@
+<div>
+  <span ng-if="list.error" class="error">{{ list.error }}</span>
+  <span ng-if="list.noClients()">No clients</span>
+
+  <table ng-if="list.clients.length > 0">
+    <thead>
+      <th>id</th>
+      <th>credit</th>
+      <th>risk</th>
+      <th>rate</th>
+      <th>name</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="client in list.clients">
+        <td>{{client.id}}</td>
+        <td>{{client.creditLimit}}</td>
+        <td>{{client.risk}}</td>
+        <td>{{client.interestRate}}</td>
+        <td>{{client.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

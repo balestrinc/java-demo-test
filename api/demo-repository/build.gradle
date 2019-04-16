@@ -1,0 +1,39 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.0.RELEASE" }
+
+ext { springBootVersion = '1.5.7.RELEASE' }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+    baseName = 'demo-repository'
+    version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile project(':demo-api')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-actuator')
+    compile("com.google.guava:guava:23.0")
+    compile('org.flywaydb:flyway-core:4.2.0')
+    compile("com.h2database:h2")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.google.code.bean-matchers:bean-matchers:0.10')
+    testCompile('org.assertj:assertj-core:3.8.0')
+    testCompile("org.hibernate:hibernate-validator:5.4.1.Final")
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
+
+
+

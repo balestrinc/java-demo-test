@@ -1,0 +1,38 @@
+
+<div>
+  <form class="simple-form" name="createCli.form" class="css-form">
+
+    <label>Name: <input type="text" ng-model="createCli.client.name" name="cName" required=""/></label><br />
+    <div ng-show="createCli.form.$submitted || createCli.form.cName.$touched">
+      <span ng-show="createCli.form.cName.$error.required" class="error">The name is required.</span><br />
+    </div>
+
+    <label>Credit limit: <input type="number" ng-model="createCli.client.creditLimit" name="cCreditLimit" required=""/></label><br />
+    <div ng-show="createCli.form.$submitted || createCli.form.cCreditLimit.$touched">
+      <span ng-show="createCli.form.cCreditLimit.$error.required" class="error">Credit limit is required.</span><br />
+    </div>
+
+
+    Risk: <label><input type="radio" ng-model="createCli.client.risk" value="A" />A</label>
+    <label><input type="radio" ng-model="createCli.client.risk" value="B" />B</label>
+    <label><input type="radio" ng-model="createCli.client.risk" value="C" />C</label><br />
+
+    <input type="button" ng-click="createCli.reset(createCli.form)" value="Reset" />
+    <input type="submit" ng-click="createCli.create(createCli.form)" value="Create" />
+  </form>
+  <br />
+  <span ng-if="createCli.error" class="error">{{ createCli.error }}</span>
+  <span ng-if="createCli.newClient">Client successfully created. </span>
+  <table ng-if="createCli.newClient">
+    <tbody>
+      <tr>
+        <td>{{createCli.newClient.id}}</td>
+        <td>{{createCli.newClient.creditLimit}}</td>
+        <td>{{createCli.newClient.risk}}</td>
+        <td>{{createCli.newClient.interestRate}}</td>
+        <td>{{createCli.newClient.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

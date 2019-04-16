@@ -1,0 +1,35 @@
+# Operating System Files
+
+*.DS_Store
+Thumbs.db
+*~
+.#*
+#*
+*#
+*.db
+
+# Build Files #
+
+bin
+target
+build/
+.gradle
+out/
+
+# Eclipse Project Files #
+
+.classpath
+.project
+.settings
+
+# IntelliJ IDEA Files #
+
+*.iml
+*.ipr
+*.iws
+*.idea
+
+# Spring Bootstrap artifacts
+
+mem*.db
+logs/
